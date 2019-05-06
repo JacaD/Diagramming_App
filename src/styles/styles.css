@@ -1,0 +1,105 @@
+#paletteDiv {
+  width: 150px;
+  height: 820px;
+  border: solid 1px #000;
+  margin: 0 5px 0 0;
+  border-radius: 10px;
+}
+
+#diagramDiv {
+  height: 820px;
+  border: solid 1px #000;
+  flex-grow: 1;
+  border-radius: 10px;
+}
+
+#menuDiv {
+  width: 300px;
+  height: 820px;
+  border: solid 1px #000;
+  border-radius: 10px;
+}
+
+#inspectorDiv {
+  height: 110px;
+}
+
+#tools {
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-right: 15%;
+  margin-left: 15%;
+  flex-wrap: wrap;
+}
+
+.toolsButton {
+  display: inline-block;
+  background-color: rgb(80, 80, 80);
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid #000;
+  padding: 2px;
+  margin: 3px;
+  font-size: 15px;
+  width: 100px;
+  box-shadow: 3px 3px 5px grey;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.toolsButton:focus {
+  outline: 0;
+}
+
+.toolsButton:hover {
+  background-color: rgb(100, 100, 100);
+}
+
+#thumbnail {
+  margin: 5px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#thumbnail img {
+  padding: 20px;
+}
+
+#thumbnail .toolsButton {
+  margin-bottom: 30px;
+}
+
+input,
+select {
+  display: block;
+  margin: 3px 3px 3px 10px;
+  border-radius: 5px;
+  padding: 3px;
+  width: 250px;
+}
+
+canvas {
+  outline: none;
+}
+
+#mainDiv {
+  display: flex;
+}
+
+#upperBar {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  background-color: rgb(68, 68, 68);
+  color: #fff;
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px grey;
+}
