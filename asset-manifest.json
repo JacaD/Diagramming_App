@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Diagramming_App/static/css/main.cdb4acfe.chunk.css",
+    "main.js": "/Diagramming_App/static/js/main.1f6968bd.chunk.js",
+    "main.js.map": "/Diagramming_App/static/js/main.1f6968bd.chunk.js.map",
+    "runtime~main.js": "/Diagramming_App/static/js/runtime~main.49305017.js",
+    "runtime~main.js.map": "/Diagramming_App/static/js/runtime~main.49305017.js.map",
+    "static/js/2.fcb12772.chunk.js": "/Diagramming_App/static/js/2.fcb12772.chunk.js",
+    "static/js/2.fcb12772.chunk.js.map": "/Diagramming_App/static/js/2.fcb12772.chunk.js.map",
+    "index.html": "/Diagramming_App/index.html",
+    "precache-manifest.76e7881e13a11da16845b77648a5fd89.js": "/Diagramming_App/precache-manifest.76e7881e13a11da16845b77648a5fd89.js",
+    "service-worker.js": "/Diagramming_App/service-worker.js",
+    "static/css/main.cdb4acfe.chunk.css.map": "/Diagramming_App/static/css/main.cdb4acfe.chunk.css.map"
+  }
+}
