@@ -12,7 +12,7 @@ class Menu extends Component {
         {Object.keys(this.props.diagram).length !== 0 && (
           <Inspector diagram={this.props.diagram.diagram} id="inspector" />
         )}
-        <Tools tools={this.tools} />
+        <Tools />
         <Thumbnail />
       </div>
     );
