@@ -24,7 +24,6 @@ function getNodeTemplate() {
         go.Shape,
         "Rectangle",
         {
-          minSize: new go.Size(40, 40),
           stroke: null,
           portId: "",
           cursor: "pointer"
@@ -46,6 +45,7 @@ function getNodeTemplate() {
     ),
     {
       resizable: true,
+      minSize: new go.Size(40, 40),
       mouseDrop: function(e, nod) {
         finishDrop(e, nod.containingGroup);
       }
