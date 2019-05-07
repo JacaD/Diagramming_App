@@ -23,7 +23,10 @@ class Inspector extends Component {
     if (inspectedObject === undefined) {
       inspectedObject = diagram.selection.first();
     }
-    if (inspectedObject instanceof go.Group) {
+    if (
+      inspectedObject instanceof go.Group ||
+      inspectedObject instanceof go.Link
+    ) {
       this.setState({ inspectedObject: null });
       return;
     }

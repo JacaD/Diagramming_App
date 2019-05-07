@@ -9,13 +9,8 @@ import addLinkValidationToDiagram from "../goJs/validators/linkValidation";
 import addShortcutsToDiagram from "../goJs/shortcuts/shortcuts";
 
 class Diagram extends Component {
-  constructor(props) {
-    super(props);
-    this.diagramDiv = this.props.diagramDiv;
-  }
-
   componentDidMount() {
-    this.diagram = getDiagram(this.diagramDiv);
+    this.diagram = getDiagram(this.props.id);
     this.diagram.nodeTemplate = getNodeTemplate();
     this.diagram.groupTemplate = getGroupTemplate();
     this.diagram.linkTemplate = getLinkTemplate();
@@ -30,7 +25,7 @@ class Diagram extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id={this.diagramDiv} />
+        <div id={this.props.id} />
       </React.Fragment>
     );
   }

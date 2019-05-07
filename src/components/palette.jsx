@@ -4,21 +4,16 @@ import getNodeTemplate from "../goJs/templates/nodeTemplate";
 import getGroupTemplate from "../goJs/templates/groupTemplate";
 
 class Palette extends Component {
-  constructor(props) {
-    super(props);
-    this.paletteDiv = this.props.paletteDiv;
-  }
-
   state = {};
 
   componentDidMount() {
-    this.palette = getPalette(this.paletteDiv);
+    this.palette = getPalette(this.props.id);
     this.palette.nodeTemplate = getNodeTemplate();
     this.palette.groupTemplate = getGroupTemplate();
   }
 
   render() {
-    return <div id={this.paletteDiv} />;
+    return <div id={this.props.id} />;
   }
 }
 

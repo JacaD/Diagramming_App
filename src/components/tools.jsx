@@ -44,6 +44,7 @@ class Tools extends Component {
       name: "Save",
       onClick: () => {
         sessionStorage.savedDiagram = this.props.diagram.diagram.model.toJson();
+        this.props.diagram.diagram.isModified = false;
         this.props.diagramModified(false);
       }
     },

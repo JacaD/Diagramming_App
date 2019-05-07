@@ -9,10 +9,10 @@ function App() {
   return (
     <React.Fragment>
       <UpperBar id="upperBar" />
-      <div id="mainDiv">
-        <Palette paletteDiv="paletteDiv" />
-        <Diagram diagramDiv="diagramDiv" />
-        <Menu id="menuDiv" />
+      <div id="main">
+        <Palette id="palette" />
+        <Diagram id="diagram" />
+        <Menu id="menu" />
       </div>
     </React.Fragment>
   );

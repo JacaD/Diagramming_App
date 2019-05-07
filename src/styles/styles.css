@@ -1,26 +1,29 @@
-#paletteDiv {
+#main {
+  height: 700px;
+  display: flex;
+}
+
+#main div {
+  border-radius: 15px;
+}
+
+#palette {
   width: 150px;
-  height: 820px;
   border: solid 1px #000;
-  margin: 0 5px 0 0;
-  border-radius: 10px;
 }
 
-#diagramDiv {
-  height: 820px;
-  border: solid 1px #000;
+#diagram {
   flex-grow: 1;
-  border-radius: 10px;
-}
-
-#menuDiv {
-  width: 300px;
-  height: 820px;
   border: solid 1px #000;
-  border-radius: 10px;
+  margin: 0 5px 0 5px;
 }
 
-#inspectorDiv {
+#menu {
+  width: 300px;
+  border: solid 1px #000;
+}
+
+#inspector {
   height: 110px;
 }
 
@@ -86,10 +89,6 @@ select {
 
 canvas {
   outline: none;
-}
-
-#mainDiv {
-  display: flex;
 }
 
 #upperBar {
