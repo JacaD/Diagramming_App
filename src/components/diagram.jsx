@@ -23,11 +23,7 @@ class Diagram extends Component {
   state = {};
 
   render() {
-    return (
-      <React.Fragment>
-        <div id={this.props.id} />
-      </React.Fragment>
-    );
+    return <div id={this.props.id} />;
   }
 
   addModifiedListener() {

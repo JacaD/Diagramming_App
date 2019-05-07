@@ -6,15 +6,15 @@ function getPalette(paletteDiv) {
     scrollsPageOnFocus: false,
     model: new go.GraphLinksModel([
       {
-        name: "green",
+        name: "Green",
         stroke: "white",
-        color: "lime",
+        color: "green",
         figure: "RoundedRectangle",
         from: true,
         to: true
       },
       {
-        name: "blue",
+        name: "Blue",
         stroke: "white",
         color: "blue",
         figure: "Rectangle",
@@ -22,7 +22,7 @@ function getPalette(paletteDiv) {
         to: true
       },
       {
-        name: "red",
+        name: "Red",
         stroke: "white",
         color: "red",
         figure: "Triangle",
