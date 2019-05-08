@@ -5,15 +5,16 @@ function addShortcutsToDiagram(diagram) {
     y = e.pageY;
   });
   document.addEventListener("keydown", e => {
-    if (e.key === "n") {
+    if (e.shiftKey && e.key === "D") {
       diagram.startTransaction("add node");
       diagram.model.addNodeData({
         name: "Green",
         stroke: "white",
         color: "Green",
-        category: "roundedRectangle",
-        // from: true,
-        // to: true,
+        category: "RoundedRectangle",
+        figure: "RoundedRectangle",
+        from: true,
+        to: true,
         loc:
           "" +
           (x + diagram.position.x - diagram.div.offsetLeft) +
