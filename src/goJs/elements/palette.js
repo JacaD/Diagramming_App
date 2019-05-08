@@ -7,24 +7,24 @@ function getPalette(paletteDiv) {
     model: new go.GraphLinksModel([
       {
         name: "Green",
-        stroke: "white",
-        color: "green",
+        category: "RoundedRectangle",
         figure: "RoundedRectangle",
+        color: "Green",
         from: true,
         to: true
       },
       {
         name: "Blue",
-        stroke: "white",
-        color: "blue",
+        color: "Blue",
+        category: "Rectangle",
         figure: "Rectangle",
         from: true,
         to: true
       },
       {
         name: "Red",
-        stroke: "white",
-        color: "red",
+        color: "Red",
+        category: "Triangle",
         figure: "Triangle",
         from: true,
         to: true

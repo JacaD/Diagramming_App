@@ -1,8 +1,9 @@
 import go from "gojs";
 
 function addLinkValidationToDiagram(diagram) {
-  let sameFigure = (fromnode, fromport, tonode, toport) =>
-    fromnode.data.figure !== tonode.data.figure;
+  let sameFigure = (fromnode, fromport, tonode, toport) => {
+    return fromnode.data.figure !== tonode.data.figure;
+  };
 
   diagram.toolManager.linkingTool.linkValidation = sameFigure;
   diagram.toolManager.relinkingTool.linkValidation = sameFigure;

@@ -7,16 +7,16 @@ class Inspector extends Component {
     super(props);
     this.state.nameInput = "";
     this.state.colorSelect = "";
-    this.state.figureSelect = "";
+    this.state.categorySelect = "";
   }
 
   state = {
     colors: [
-      { value: "green", label: "Green" },
-      { value: "grey", label: "Grey" },
-      { value: "blue", label: "Blue" },
-      { value: "red", label: "Red" },
-      { value: "purple", label: "Purple" }
+      { value: "Green", label: "Green" },
+      { value: "Grey", label: "Grey" },
+      { value: "Blue", label: "Blue" },
+      { value: "Red", label: "Red" },
+      { value: "Purple", label: "Purple" }
     ],
     figures: [
       { value: "RoundedRectangle", label: "Rounded Rectangle" },
@@ -43,6 +43,7 @@ class Inspector extends Component {
     let inspectedObject = object;
     if (inspectedObject === undefined) {
       inspectedObject = diagram.selection.first();
+      this.updateFields();
     }
     if (
       inspectedObject instanceof go.Group ||

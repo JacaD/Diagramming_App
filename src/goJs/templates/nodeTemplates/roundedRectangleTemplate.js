@@ -1,6 +1,6 @@
 import go from "gojs";
 
-function getNodeTemplate() {
+function getRoundedRectangleTemplate() {
   let $ = go.GraphObject.make;
 
   function finishDrop(e, grp) {
@@ -22,11 +22,12 @@ function getNodeTemplate() {
       "Auto",
       $(
         go.Shape,
-        "Rectangle",
+        "RoundedRectangle",
         {
-          stroke: null,
+          stroke: "white",
           portId: "",
-          cursor: "pointer"
+          cursor: "pointer",
+          fill: "Blue"
         },
         new go.Binding("fromLinkable", "from"),
         new go.Binding("toLinkable", "to"),
@@ -37,13 +38,16 @@ function getNodeTemplate() {
         go.TextBlock,
         "",
         {
-          font: "bold 11pt H elvetica, Arial, sans-serif",
+          wrap: go.TextBlock.WrapFit,
+          font: "bold 11pt Helvetica, Arial, sans-serif",
           stroke: "whitesmoke"
         },
-        new go.Binding("text", "name").makeTwoWay()
+        new go.Binding("text", "name").makeTwoWay(),
+        new go.Binding("naturalBounds", "textSize").ofObject()
       )
     ),
     {
+      stretch: go.GraphObject.Fill,
       resizable: true,
       minSize: new go.Size(40, 40),
       mouseDrop: function(e, nod) {
@@ -53,4 +57,4 @@ function getNodeTemplate() {
   );
 }
 
-export default getNodeTemplate;
+export default getRoundedRectangleTemplate;

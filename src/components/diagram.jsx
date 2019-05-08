@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { diagramModified, diagram } from "../store/actions";
 import getDiagram from "../goJs/elements/diagram";
-import getNodeTemplate from "../goJs/templates/nodeTemplate";
+import getNodeTemplates from "../goJs/templates/nodeTemplates";
 import getGroupTemplate from "../goJs/templates/groupTemplate";
 import getLinkTemplate from "../goJs/templates/linkTemplate";
 import addLinkValidationToDiagram from "../goJs/validators/linkValidation";
@@ -11,7 +11,7 @@ import addShortcutsToDiagram from "../goJs/shortcuts/shortcuts";
 class Diagram extends Component {
   componentDidMount() {
     this.diagram = getDiagram(this.props.id);
-    this.diagram.nodeTemplate = getNodeTemplate();
+    this.diagram.nodeTemplateMap = getNodeTemplates();
     this.diagram.groupTemplate = getGroupTemplate();
     this.diagram.linkTemplate = getLinkTemplate();
     addLinkValidationToDiagram(this.diagram);
@@ -46,5 +46,3 @@ export default (Diagram = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Diagram));
-
-// export default Diagram;

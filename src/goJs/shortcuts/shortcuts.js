@@ -8,12 +8,12 @@ function addShortcutsToDiagram(diagram) {
     if (e.key === "n") {
       diagram.startTransaction("add node");
       diagram.model.addNodeData({
-        name: "green",
+        name: "Green",
         stroke: "white",
-        color: "lime",
-        figure: "RoundedRectangle",
-        from: true,
-        to: true,
+        color: "Green",
+        category: "roundedRectangle",
+        // from: true,
+        // to: true,
         loc:
           "" +
           (x + diagram.position.x - diagram.div.offsetLeft) +

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import getPalette from "../goJs/elements/palette";
-import getNodeTemplate from "../goJs/templates/nodeTemplate";
+import getNodeTemplates from "../goJs/templates/nodeTemplates";
 import getGroupTemplate from "../goJs/templates/groupTemplate";
 
 class Palette extends Component {
@@ -8,7 +8,7 @@ class Palette extends Component {
 
   componentDidMount() {
     this.palette = getPalette(this.props.id);
-    this.palette.nodeTemplate = getNodeTemplate();
+    this.palette.nodeTemplateMap = getNodeTemplates();
     this.palette.groupTemplate = getGroupTemplate();
   }
 
