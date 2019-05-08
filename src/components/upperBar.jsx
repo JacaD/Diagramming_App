@@ -1,16 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
-class UpperBar extends Component {
-  state = {};
-  render() {
-    return (
-      <div id={this.props.id}>
-        {this.props.modified.modified ? "Diagramming App*" : "Diagramming App"}
-      </div>
-    );
-  }
-}
+const UpperBar = ({ id, modified }) => {
+  return (
+    <div id={id}>
+      {modified.modified ? "Diagramming App*" : "Diagramming App"}
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
@@ -18,4 +15,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default (UpperBar = connect(mapStateToProps)(UpperBar));
+export default connect(mapStateToProps)(UpperBar);

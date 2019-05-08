@@ -1,23 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Inspector from "./inspector";
 import Tools from "./tools";
 import Thumbnail from "./thumbnail";
 
-class Menu extends Component {
-  state = {};
-  render() {
-    return (
-      <div id={this.props.id}>
-        {Object.keys(this.props.diagram).length !== 0 && (
-          <Inspector diagram={this.props.diagram.diagram} id="inspector" />
-        )}
-        <Tools />
-        <Thumbnail />
-      </div>
-    );
-  }
-}
+const Menu = ({ id, diagram }) => {
+  return (
+    <div id={id}>
+      {Object.keys(diagram).length !== 0 && (
+        <Inspector diagram={diagram.diagram} id="inspector" />
+      )}
+      <Tools />
+      <Thumbnail />
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {
@@ -25,4 +22,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default (Menu = connect(mapStateToProps)(Menu));
+export default connect(mapStateToProps)(Menu);
