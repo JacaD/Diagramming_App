@@ -1,8 +1,10 @@
 import go from "gojs";
+import getNodeTemplates from "../templates/nodeTemplates";
+import getGroupTemplate from "../templates/groupTemplate";
 
 function getPalette(paletteDiv) {
   let $ = go.GraphObject.make;
-  return $(go.Palette, paletteDiv, {
+  let palette = $(go.Palette, paletteDiv, {
     scrollsPageOnFocus: false,
     model: new go.GraphLinksModel([
       {
@@ -32,6 +34,11 @@ function getPalette(paletteDiv) {
       { stroke: "white", Name: "Group", isGroup: true }
     ])
   });
+
+  palette.nodeTemplateMap = getNodeTemplates();
+  palette.groupTemplate = getGroupTemplate();
+
+  return palette;
 }
 
 export default getPalette;

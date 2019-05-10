@@ -5,21 +5,14 @@ import getDiagram from "../goJs/elements/diagram";
 
 class Diagram extends Component {
   componentDidMount() {
-    this.diagram = getDiagram(this.props.id);
+    this.diagram = getDiagram(this.props.id, this.props.diagramModified);
     this.props.diagram(this.diagram);
-    this.addModifiedListener();
   }
 
   state = {};
 
   render() {
     return <div id={this.props.id} />;
-  }
-
-  addModifiedListener() {
-    this.diagram.addDiagramListener("Modified", e => {
-      this.props.diagramModified(true);
-    });
   }
 }
 

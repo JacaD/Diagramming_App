@@ -8,23 +8,10 @@ class Inspector extends Component {
     this.state.nameInput = "";
     this.state.colorSelect = "";
     this.state.categorySelect = "";
+    this.state.inspectedObject = null;
   }
 
-  state = {
-    colors: [
-      { value: "Green", label: "Green" },
-      { value: "Grey", label: "Grey" },
-      { value: "Blue", label: "Blue" },
-      { value: "Red", label: "Red" },
-      { value: "Purple", label: "Purple" }
-    ],
-    figures: [
-      { value: "RoundedRectangle", label: "Rounded Rectangle" },
-      { value: "Triangle", label: "Triangle" },
-      { value: "Rectangle", label: "Rectangle" }
-    ],
-    inspectedObject: null
-  };
+  state = {};
 
   componentDidMount() {
     let { diagram } = this.props;
@@ -96,17 +83,31 @@ class Inspector extends Component {
         />
         <Select
           onChange={e => this.update(e.target.value, "color")}
-          options={this.state.colors}
+          options={this.colors}
           value={this.state.colorSelect}
         />
         <Select
           onChange={e => this.update(e.target.value, "figure")}
-          options={this.state.figures}
+          options={this.figures}
           value={this.state.figureSelect}
         />
       </div>
     );
   }
+
+  colors = [
+    { value: "Green", label: "Green" },
+    { value: "Grey", label: "Grey" },
+    { value: "Blue", label: "Blue" },
+    { value: "Red", label: "Red" },
+    { value: "Purple", label: "Purple" }
+  ];
+
+  figures = [
+    { value: "RoundedRectangle", label: "Rounded Rectangle" },
+    { value: "Triangle", label: "Triangle" },
+    { value: "Rectangle", label: "Rectangle" }
+  ];
 }
 
 export default Inspector;

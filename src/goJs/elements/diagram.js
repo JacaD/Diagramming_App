@@ -5,7 +5,7 @@ import getLinkTemplate from "../templates/linkTemplate";
 import addLinkValidationToDiagram from "../validators/linkValidation";
 import addShortcutsToDiagram from "../shortcuts/shortcuts";
 
-function getDiagram(diagramDiv) {
+function getDiagram(diagramDiv, modifiedReducer) {
   let $ = go.GraphObject.make;
 
   let diagram = $(go.Diagram, diagramDiv, {
@@ -25,6 +25,10 @@ function getDiagram(diagramDiv) {
   diagram.linkTemplate = getLinkTemplate();
   addLinkValidationToDiagram(diagram);
   addShortcutsToDiagram(diagram);
+  diagram.addDiagramListener("Modified", e => {
+    modifiedReducer(true);
+  });
+
   return diagram;
 }
 
