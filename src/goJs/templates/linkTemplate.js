@@ -1,7 +1,7 @@
 import go from "gojs";
 
 function getLinkTemplate() {
-  let $ = go.GraphObject.make;
+  const $ = go.GraphObject.make;
 
   return $(
     go.Link,

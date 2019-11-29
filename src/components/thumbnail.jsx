@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import makeThumbnail from "../goJs/thumbnails/thumbnails";
+import makeThumbnail from "../goJs/tools/thumbnails/thumbnails";
 
 class Thumbnail extends Component {
   state = {

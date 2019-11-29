@@ -4,7 +4,7 @@ import getTriangleTemplate from "./nodeTemplates/triangleTemplate";
 import getRoundedRectangleTemplate from "./nodeTemplates/roundedRectangleTemplate";
 
 function getNodeTemplates() {
-  let templateMap = new go.Map();
+  const templateMap = new go.Map();
   templateMap.add("Triangle", getTriangleTemplate());
   templateMap.add("Rectangle", getRectangleTemplate());
   templateMap.add("RoundedRectangle", getRoundedRectangleTemplate());

@@ -2,13 +2,14 @@ import go from "gojs";
 import getNodeTemplates from "../templates/nodeTemplates";
 import getGroupTemplate from "../templates/groupTemplate";
 import getLinkTemplate from "../templates/linkTemplate";
-import addLinkValidationToDiagram from "../validators/linkValidation";
-import addShortcutsToDiagram from "../shortcuts/shortcuts";
+import addLinkValidationToDiagram from "../tools/validators/linkValidation";
+import addShortcutsToDiagram from "../tools/shortcuts/shortcuts";
+import GroupResizingTool from '../tools/toolExtensions/GroupResizingTool';
+import selectionMovedCallback from '../tools/callbacks/selectionMovedCallback';
 
-function getDiagram(diagramDiv, modifiedReducer) {
-  let $ = go.GraphObject.make;
-
-  let diagram = $(go.Diagram, diagramDiv, {
+const getDiagram = (diagramDiv, modifiedReducer) => {
+  const $ = go.GraphObject.make;
+  const diagram = $(go.Diagram, diagramDiv, {
     initialContentAlignment: go.Spot.Center,
     allowDrop: true,
     scrollsPageOnFocus: false,
@@ -17,6 +18,12 @@ function getDiagram(diagramDiv, modifiedReducer) {
     "commandHandler.archetypeGroupData": {
       isGroup: true,
       category: "OfNodes"
+    },
+    maxSelectionCount: 1,
+    resizingTool: new GroupResizingTool(),
+    mouseDrop: (e, grp) => {
+      const ok = e.diagram.commandHandler.addTopLevelParts(e.diagram.selection, true);
+      if (!ok) e.diagram.currentTool.doCancel();
     }
   });
 
@@ -28,6 +35,7 @@ function getDiagram(diagramDiv, modifiedReducer) {
   diagram.addDiagramListener("Modified", e => {
     modifiedReducer(true);
   });
+  diagram.addDiagramListener('SelectionMoved', selectionMovedCallback);
 
   return diagram;
 }

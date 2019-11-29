@@ -1,10 +1,10 @@
 import go from "gojs";
 
 function getGroupTemplate() {
-  let $ = go.GraphObject.make;
+  const $ = go.GraphObject.make;
 
-  function finishDrop(e, grp) {
-    var ok =
+  const finishDrop = (e, grp) => {
+    const ok =
       grp !== null
         ? grp.addMembers(grp.diagram.selection, true)
         : e.diagram.commandHandler.addTopLevelParts(e.diagram.selection, true);
@@ -13,33 +13,12 @@ function getGroupTemplate() {
 
   return $(
     go.Group,
-    "Vertical",
+    "Spot",
     {
-      background: "transparent",
-      computesBoundsAfterDrag: true,
       mouseDrop: finishDrop,
-      handlesDragDropForMembers: true,
-      //resizable: true,
-      // selectionObjectName: "SHAPE",
-      // locationObjectName: "SHAPE",
-      // resizeObjectName: "SHAPE",
-      layout: $(go.GridLayout, {
-        wrappingWidth: Infinity,
-        alignment: go.GridLayout.Position,
-        cellSize: new go.Size(1, 1),
-        spacing: new go.Size(4, 4)
-      })
+      resizable: true,
+      resizeObjectName: "SHAPE",
     },
-    $(
-      go.TextBlock,
-      {
-        name: "TxtBlock",
-        alignment: go.Spot.Left,
-        font: "Bold 12pt Sans-Serif",
-        editable: true
-      },
-      new go.Binding("text", "Name")
-    ),
     $(
       go.Panel,
       "Auto",
@@ -52,14 +31,18 @@ function getGroupTemplate() {
           fill: "rgba(128,128,128,0.33)",
           minSize: new go.Size(80, 80)
         },
-        new go.Binding(
-          "desiredSize",
-          "desiredSize",
-          size =>
-            new go.Size(size.width, size.height - (size.height > 40 ? 20 : 0))
-        ).ofObject()
+        new go.Binding('desiredSize', 'desiredSize').makeTwoWay()
       ),
-      $(go.Placeholder, { padding: 5 })
+    ),
+    $(
+      go.TextBlock,
+      {
+        name: "TxtBlock",
+        alignment: new go.Spot(0.5, 0, 0, 10),
+        font: "Bold 12pt Sans-Serif",
+        editable: true
+      },
+      new go.Binding("text", "Name")
     ),
     new go.Binding("location", "loc", go.Point.parse).makeTwoWay(
       go.Point.stringify

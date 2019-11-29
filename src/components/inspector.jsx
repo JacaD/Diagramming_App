@@ -14,7 +14,7 @@ class Inspector extends Component {
   state = {};
 
   componentDidMount() {
-    let { diagram } = this.props;
+    const { diagram } = this.props;
     diagram.addModelChangedListener(e => {
       if (e.isTransactionFinished) {
         this.inspectObject();
@@ -26,7 +26,7 @@ class Inspector extends Component {
   }
 
   inspectObject = object => {
-    let { diagram } = this.props;
+    const { diagram } = this.props;
     let inspectedObject = object;
     if (inspectedObject === undefined) {
       inspectedObject = diagram.selection.first();
@@ -61,8 +61,8 @@ class Inspector extends Component {
   };
 
   update = (value, name) => {
-    let { diagram } = this.props;
-    let { inspectedObject } = this.state;
+    const { diagram } = this.props;
+    const { inspectedObject } = this.state;
     if (inspectedObject === null) return;
     diagram.startTransaction("set all properties");
     diagram.model.setDataProperty(inspectedObject.data, name, value);

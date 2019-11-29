@@ -1,10 +1,10 @@
 import go from "gojs";
 
 function getRectangleTemplate() {
-  let $ = go.GraphObject.make;
+  const $ = go.GraphObject.make;
 
-  function finishDrop(e, grp) {
-    var ok =
+  const finishDrop = (e, grp) => {
+    const ok =
       grp !== null
         ? grp.addMembers(grp.diagram.selection, true)
         : e.diagram.commandHandler.addTopLevelParts(e.diagram.selection, true);
@@ -50,9 +50,9 @@ function getRectangleTemplate() {
       stretch: go.GraphObject.Fill,
       resizable: true,
       minSize: new go.Size(40, 40),
-      mouseDrop: function(e, nod) {
+      mouseDrop: (e, nod) => {
         finishDrop(e, nod.containingGroup);
-      }
+      },
     }
   );
 }

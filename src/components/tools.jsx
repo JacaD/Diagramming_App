@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { diagramModified } from "../store/actions";
-import getTools from "../goJs/tools/tools";
+import getTools from "../goJs/tools/menuButtons/buttonTools";
 
 class Tools extends Component {
   state = {};

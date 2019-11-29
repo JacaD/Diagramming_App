@@ -1,6 +1,6 @@
 import go from "gojs";
 
-function getTools(diagram, modifiedReducer) {
+const getTools = (diagram, modifiedReducer) => {
   return [
     {
       name: "Zoom In",

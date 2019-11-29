@@ -1,7 +1,7 @@
 import go from "gojs";
 
-function addLinkValidationToDiagram(diagram) {
-  let sameFigure = (fromnode, fromport, tonode, toport) => {
+const addLinkValidationToDiagram = diagram => {
+  const sameFigure = (fromnode, fromport, tonode, toport) => {
     return fromnode.data.figure !== tonode.data.figure;
   };
 
@@ -13,14 +13,14 @@ function addLinkValidationToDiagram(diagram) {
   diagram.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
   diagram.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
 
-  let checkLinks = function(object) {
+  const checkLinks = object => {
     object = diagram.findNodeForKey(object.key);
-    let connectedLinks = object.findLinksConnected();
+    const connectedLinks = object.findLinksConnected();
 
-    let toDelete = [];
+    const toDelete = [];
 
     while (connectedLinks.next()) {
-      let link = connectedLinks.value;
+      const link = connectedLinks.value;
       if (
         link.fromNode.data.key !== object.data.key &&
         link.fromNode.data.figure === object.data.figure
@@ -38,7 +38,7 @@ function addLinkValidationToDiagram(diagram) {
     diagram.commitTransaction("Remove invalid links");
   };
 
-  diagram.addModelChangedListener(function(e) {
+  diagram.addModelChangedListener(e => {
     if (e.propertyName === "figure") {
       checkLinks(e.object);
     }
