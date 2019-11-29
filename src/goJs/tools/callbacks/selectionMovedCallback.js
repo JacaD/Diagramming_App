@@ -2,8 +2,7 @@ import go from 'gojs';
 
 const selectionMovedCallback = e => {
     const diagram = e.diagram;
-    const parts = Array.from(e.subject.iterator);
-    parts.forEach(part => {
+    e.subject.iterator.each(part => {
       while(part.containingGroup){
         if(!diagram.computePartsBounds([part.containingGroup]).containsRect(diagram.computePartsBounds([part]).addMargin(new go.Margin(20)))){
           const size = diagram.computePartsBounds([part.containingGroup]).unionRect(diagram.computePartsBounds([part]).addMargin(new go.Margin(20)));
