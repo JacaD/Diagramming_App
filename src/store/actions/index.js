@@ -1,9 +1,9 @@
-export const diagramModified = modified => ({
+export const setIsDiagramModified = modified => ({
   type: "DIAGRAM_MODIFIED",
   modified
 });
 
-export const diagram = diagram => ({
+export const getDiagram = diagram => ({
   type: "DIAGRAM",
   diagram
 });

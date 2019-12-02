@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { diagramModified } from "../store/actions";
+import { setIsDiagramModified } from "../store/actions";
 import getTools from "../goJs/tools/menuButtons/buttonTools";
 
 class Tools extends Component {
@@ -9,7 +9,7 @@ class Tools extends Component {
     return (
       Object.keys(this.props.diagram).length !== 0 && (
         <div id="tools">
-          {getTools(this.props.diagram.diagram, this.props.diagramModified).map(
+          {getTools(this.props.diagram.diagram, this.props.setIsDiagramModified).map(
             tool => (
               <button
                 className="toolsButton"
@@ -33,7 +33,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { diagramModified };
+const mapDispatchToProps = { setIsDiagramModified };
 
 export default (Tools = connect(
   mapStateToProps,

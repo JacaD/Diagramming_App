@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { diagramModified, diagram } from "../store/actions";
-import getDiagram from "../goJs/elements/diagram";
+import { setIsDiagramModified, getDiagram } from "../store/actions";
+import createDiagram from "../goJs/elements/diagram";
 
 class Diagram extends Component {
   componentDidMount() {
-    this.diagram = getDiagram(this.props.id, this.props.diagramModified);
-    this.props.diagram(this.diagram);
+    this.diagram = createDiagram(this.props.id, this.props.setIsDiagramModified);
+    this.props.getDiagram(this.diagram);
   }
 
   state = {};
@@ -23,7 +23,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { diagramModified, diagram };
+const mapDispatchToProps = { setIsDiagramModified, getDiagram };
 
 export default (Diagram = connect(
   mapStateToProps,
